@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Title</title>
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/2f4f41f7c8.js" crossorigin="anonymous"></script>
+<link rel="icon" href="./static/book-solid.png">
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <label for="dark-mode-toggle"></label>
+    <input class="toggle" title="dark-mode-toggle" type="checkbox" checked/>
+    <i class="fas fa-adjust dark"></i>
+    <nav id="navbar">
+        <header id="page-heading">Rockstar Documentation</header>
+
+        <ul class="navbar-list" id="navbar-list">
+            <li class="navbar-list-element"><a class="nav-link" href="#introduction">Introduction</a></li>
+            <li class="navbar-list-element"><a class="nav-link" href="#variables">Variables</a></li>
+            <li class="navbar-list-element"><a class="nav-link" href="#poetic_number_literals">Poetic Number Literals</a></li>
+            <li class="navbar-list-element"><a class="nav-link" href="#comparison">Comparison</a></li>
+            <li class="navbar-list-element"><a class="nav-link" href="#input/output">Input/Output</a></li>
+            <li class="navbar-list-element"><a class="nav-link" href="#loops">Loops</a></li>
+            <li class="navbar-list-element"><a class="nav-link" href="#examples">Examples</a></li>
+        </ul>
+    </nav>
+
+    <h1 id="doc-title">Rockstar Documentation</h1>
+
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Go To Section</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="#introduction">Introduction</a>
+          <a href="#variables">Variables</a>
+          <a href="#poetic_number_literals">Poetic Number Literals</a>
+          <a href="#comparison">Comparison</a>
+          <a href="#input/output">Input/Output</a>
+          <a href="#loops">Loops</a>
+          <a href="#examples">Examples</a>
+        </div>
+      </div>
+
+    <main id="main-doc">
+        <section class="main-section" id="introduction">
+            <header class="doc-headings" id="intro-header">Introduction</header>
+            <p class="text-content">Rockstar is a dynamically typed Turing-complete programming language designed 
+                for creating computer programs that are also song lyrics. Rockstar is heavily 
+                influenced by the lyrical conventions of 1980s hard rock and power ballads. It 
+                was created by Dylan Beattie in 2018, based on this tweet from Paul Stovell, 
+                which said "To really confuse recruiters, someone should make a programming 
+                language called Rockstar."<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;Although Rockstar is a fully-specified language with multiple implementations, 
+                it was created primarily to satirise the use of the phrase 'rockstar developer' 
+                in IT job listings and recruitment - the joke being that if Rockstar is a real
+                programming language that's easy to learn, then anybody who wants to invest a 
+                few minutes in it can legitimately call themselves a 'rockstar developer'.
+            </p>
+        </section>
+
+        <h2>The Rockstar Language Specification</h2>
+
+        <section class="main-section" id="variables">
+            <header class="doc-headings" id="variables-header">Variables</header>
+
+            <p class="text-content">Rockstar supports three kinds of variable names.<br><br>
+                <strong>Simple variables</strong> are valid identifiers that are not language keywords.
+                 A simple variable name must contain only letters, and cannot contain spaces.             
+            </p>
+            <code>Variable is 1 <br>Tommy is a rockstar<br>X is 2</code>
+
+            <p class="text-content"><strong>Common variables</strong> consist of one of the keywords a, an, the, my or your
+              followed by whitespace and a unique variable name, which must contain only lowercase ASCII letters a-z.            
+            </p>  
+            <code>My variable is 5<br>Your variable is 4</code>
+
+            <p class="text-content"><strong>Proper variables</strong> are proper nouns - any word that isn’t a reserved keyword 
+                and starts with an uppercase letter.Proper variable names can contain spaces as long as each space is followed by an uppercase letters
+            </p>
+        </section>
+
+        <section class="main-section" id="poetic_number_literals">
+            <header class="doc-headings" id="poetic-number-literals-header">Poetic Number Literals</header>
+            <p class="text-content">A poetic number literal begins with a variable name, followed by the keyword <strong>is</strong>, or the 
+                aliases <strong>was</strong> or <strong>were</strong>. As long as the next symbol is not a Literal Word, the rest of the line is 
+                treated as a decimal number in which the values of consecutive digits are given by the lengths of 
+                the subsequent barewords, up until the end of the line. To allow the digit zero, and to compensate
+                for a lack of suitably rock’n’roll 1- and 2-letter words, word lengths are parsed modulo 10. A 
+                period (.) character denotes a decimal place. Other than the first period, any non-alphabetical 
+                characters are ignored.
+            </p>
+            <ul class="text-list">
+                <li><strong>Tommy was a lovestruck ladykiller</strong> initialises <strong>Tommy</strong> with the value 100.</li>
+                <li><strong>My dreams were ice. A life unfulfilled; wakin everybody up, taking booze and pills</strong> - initialises my dreams 
+                    with the value 3.1415926535</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="comparison">
+            <header class="doc-headings" id="comparison-header">Comparison</header>
+            <p class="text-content">
+                Similar to the single-equals operator in Visual Basic and some scripting languages, the <strong>is</strong> keyword in Rockstar is interpreted differently 
+                depending whether it appears as part of a statement or as part of an expression. <strong>isn't</strong> is the logical negation of the <strong>is</strong> keyword.
+            </p>
+            <ul class="text-list">
+                <li><strong>Tommy is nobody</strong> initialises the variable <strong>Tommy</strong> with the value <strong>nobody</strong></li>
+                <li><strong>If Tommy is nobody</strong> - will execute the following block if, and only if, the variable <strong>Tommy</strong> is equal to <strong>nobody</strong></li>
+            </ul>
+            <p class="text-content">The keyword <strong>ain't</strong> (which is reduced to <strong>aint</strong> by Rockstar) is an alias for <strong>isn't</strong>. This usage runs contrary to idiomatic English, where “Tommy isn’t
+                anybody”, “Tommy ain’t nobody” and “Tommy ain’t not nobody” somehow mean exactly the same thing.
+            </p>
+            <p class="text-content">Rockstar also supports the following comparison syntax:</p>
+            <ul class="text-list">
+                <li><strong>is higher/greater/bigger/stronger than</strong> to denote ‘greater than’</li>
+                <li><strong>is lower/less/smaller/weaker than</strong> to denote ‘less than’</li>
+                <li><strong>is as high/great/big/strong</strong> as to denote ‘greater than or equal to’</li>
+            </ul>
+        </section>
+
+        <section class="main-section" id="input/output">
+            <header class="doc-headings" id="input-output-header">Input/Output</header>
+            <p class="text-content">
+                Use the <strong>Listen</strong> keyword to read one line of input from STDIN. Use <strong>Listen to</strong>
+                to capture the input into a named variable.
+            </p>
+            <code><strong>Listen to your heart</strong> - read one line of input from STDIN and store it in <strong>your heart</strong></code>
+            <p class="text-content">Use the <strong>Say</strong> keyword to write the value of a variable to STDOUT.</p>
+            <code><strong>Say Tommy</strong> - will output the value stored in Tommy to STDOUT</code>
+            <p class="text-content">Rockstar defines <strong>Shout, Whisper</strong> and <strong>Scream</strong> as aliases for Say</p>
+        </section>
+
+        <section class="main-section" id="loops">
+            <header class="doc-headings" id="loops-header">Loops</header>
+            <p class="text-content">Similar to the <strong>If</strong> statement, a loop is denoted by the <strong>While</strong> or <strong>Until</strong> keyword, which will cause the 
+                subsequent code block to be executed repeatedly whilst the expression is satisfied:
+            </p>
+            <code>Tommy was a dancer<br>
+                While Tommy ain't nothing,<br>
+                Knock Tommy down
+            </code>
+            <p class="text-content">That’ll initialize Tommy with the value 16 (using the poetic number literal syntax) and then loop,
+                decrementing Tommy by 1 each time until Tommy equals zero (i.e ain't nothing returns false).</p>
+            <p class="text-content">The <strong>break</strong> and <strong>continue</strong> statements work as they do in most block-based languages. Rockstar defines
+                <strong>Break it down</strong> as an alias for <strong>break</strong> and <strong>Take it to the top</strong> as an alias for <strong>continue</strong></p>
+        </section>
+
+        <section class="main-section" id="examples">
+            <header class="doc-headings" id="examples-header">Examples</header>
+            <p class="text-content">Here is the 'Hello World' program in Rockstar </p>
+            <code>Say "Hello World"</code>
+            <p class="text-content">Now here is FizzBuzz in idiomatic Rockstar, using poetic literals
+                and no indentation.
+            </p>
+            <code>Midnight takes your heart and your soul<br>
+                While your heart is as high as your soul<br>
+                Put your heart without your soul into your heart<br><br>
+
+                Give back your heart<br><br>
+                
+                Desire is a lovestruck ladykiller<br>
+                My world is nothing <br>
+                Fire is ice<br>
+                Hate is water<br>
+                Until my world is Desire,<br>
+                Build my world up<br>
+                If Midnight taking my world, Fire is nothing and Midnight taking my world, Hate is nothing<br>
+                Shout "FizzBuzz!"<br>
+                Take it to the top<br><br>  
+                
+                If Midnight taking my world, Fire is nothing<br>
+                Shout "Fizz!"<br>
+                Take it to the top<br><br>
+                
+                If Midnight taking my world, Hate is nothing<br>
+                Say "Buzz!"<br>
+                Take it to the top<br><br>
+                
+                Whisper my world</code>
+        </section>
+
+
+    </main>
+
+    <script>function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+      }
+      
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }</script>
+</body>
+
+</html>
